@@ -1,0 +1,20 @@
+\subsection{Allgemeines}
+
+\begin{itemize}
+\item Linearer $(n,m)$-Code $C$
+\item \textbf{\textit{a} x \textit{b} Matrix:} $n = b$ und $m = a$
+\end{itemize}
+
+\subsection{Wichtige Formeln}
+
+\begin{itemize}
+\item \textbf{Blocklänge:} $\displaystyle n$
+\item \textbf{Dimension des Unterrraums $C$:} $m$
+\item \textbf{Anzahl Codewörter:} $|C| = q^m$, wobei $q$ Anzahl Elemente in $C$
+\item \textbf{Anzahl Wörter in Standardfeld:} $q^n$
+\item \textbf{Anzahl Wörter in Syndromtabelle:} $q^{n-m}$
+\item \textbf{Hamming Code:} $\displaystyle n = \frac{q^{n-m}-1}{q-1}$
+\item \textbf{Schätzen der Codedistanz (Singleton-Schranke):} $d(C) \leq n - m + 1$
+\item \textbf{Fehler erkennend:} $(n - m + 1) - 1$
+\item \textbf{Fehler korrigierend:} $\displaystyle \Bigl\lfloor \frac{(n - m + 1) - 1}{2} \Bigr\rfloor$
+\end{itemize}

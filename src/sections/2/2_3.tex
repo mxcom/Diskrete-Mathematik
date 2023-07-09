@@ -1,0 +1,93 @@
+\subsection{Syndromtabelle}
+
+\begin{itemize}
+\item Definition: Identifiziert und korrigiert Fehler in Codewörter durch Vergleich mit erwarteten Werten.
+\item Anzahl Zeilen: $q^{n-m}$
+\item Anzahl Spalten: $n$
+\end{itemize}
+
+Beispiel: $(7 \times 3)$-Kontrollmatrix, $n = 7, m = 4$
+
+\begin{minipage}{0.2\textwidth}
+
+$$
+  H = \begin{pmatrix}
+  {\color{red}1} & {\color{red}1} & {\color{red}1}\\
+  {\color{blue}1} & {\color{blue}0} & {\color{blue}1}\\
+  {\color{Green}0} & {\color{Green}1} & {\color{Green}1}\\
+  1 & 1 & 0\\
+  1 & 0 & 0\\
+  0 & 1 & 0\\
+  0 & 0 & 1
+  \end{pmatrix}
+$$
+\end{minipage}
+\hfill
+\begin{minipage}{0.2\textwidth}
+
+\begin{tabular}{c|c}
+    $a$ & $S = a \cdot H$\\
+    \hline
+    0000000 & 000\\
+    1000000 & {\color{red}111}\\
+    0100000 & {\color{blue}101}\\
+    0010000 & {\color{Green}011}\\
+    0001000 & 110\\
+    0000100 & 100\\
+    0000010 & 010\\
+    0000001 & 001\\
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+
+\begin{itemize}[leftmargin=*]
+\item Anzahl Zeilen: $2^{7-4} = 8$
+\item Anzahl Spalten: $7$
+\item Wenn über $0000001$ hinaus geht egal ob $1000001$, $1100000$, \dots
+\end{itemize}
+\end{minipage}\
+
+1. Überprüfen ob es ein empfangenes Codewort fehlerfrei ist$(wort \cdot kontrollmatrix = 0)$
+
+\begin{itemize}
+\item Empfangenes Wort: $y = 1010010$
+\end{itemize}\
+
+$1010010 \cdot \begin{pmatrix}
+1 & 1 & 1\\
+1 & 0 & 1\\
+0 & 1 & 1\\
+1 & 1 & 0\\
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix} = 110 \not = 0 \Rightarrow$ Fehler im empfangenen Codewort\\
+
+2. Codewort durch Syndromtabelle korrigieren
+
+\begin{itemize}
+\item Klassenanführer von $110$ aus Syndromtabelle ablesen: $a =0001000$
+\item $empfangenes \ Codewort - Klassenanfuehrer = korrigiertes \ Codewort$
+\end{itemize}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ccc}
+$y$ & & $1010010$\\
+$a$ & $-$ & $0001000$\\
+\hline
+& & $1011010$
+\end{tabular}
+\end{table}
+
+\begin{itemize}
+\item korrigiertes Codewort: $1011010$
+\end{itemize}\
+
+3. Nachricht extrahieren
+
+\begin{itemize}
+\item Letzte Stellen des korrigierten Codewort entfernen, um die Nachricht zu erhalten (Anzahl entfernte Stellen entspricht Länge des Syndrom).
+\item Nachricht: 1011\sout{010} = 1011
+\end{itemize}

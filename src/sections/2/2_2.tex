@@ -1,0 +1,137 @@
+\subsection{Codewörter sind gegeben}
+
+\subsubsection*{$n$ und $m$ bestimmen}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c}
+$n$ = Länge der Codewörter $\Rightarrow n = 5$\\
+{\color{blue}00000}\\
+01101\\
+10111\\
+11010\\
+\end{tabular}
+\end{table}
+
+% === %
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c}
+$m$ = Dimension $\Rightarrow m = 2$\\
+{\color{blue}00}000\\
+{\color{blue}01}101\\
+{\color{blue}10}111\\
+{\color{blue}11}010\\
+\end{tabular}
+\end{table}
+
+\subsubsection*{Hamming-Distanz/Code-Distanz/$d(c)$}
+
+\begin{itemize}
+\item Hemming-Distanz ist die minimale Änderung des Gewichts
+\item Wird mit $d(C)$ bezeichnet
+\end{itemize}\
+
+Beispiel:
+
+\begin{itemize}
+\item Anzahl Einsen in Codewörter Zählen
+\item $0 \dots 0$ wird dabei nicht beachtet
+\end{itemize}
+
+\begin{table}[h]
+\begin{tabular}{ccc}
+01101 & $\rightarrow$ & Gewicht: 3\\
+10111 & $\rightarrow$ & Gewicht: 4\\
+11010 & $\rightarrow$ & Gewicht: 3\\
+\end{tabular}
+\end{table}
+
+\begin{itemize}
+\item Gewicht der Codewörter vergleichen und minimalstes auswählen
+\item[$\Rightarrow$] $d(C) = 3$, da es minimal ist
+\end{itemize}
+
+\subsubsection*{t-fehlererkennend}
+
+\subsubsection*{t-fehlerkorrigierend}
+
+\subsubsection*{t-ausfällekorrigierend}
+
+\newpage
+
+\subsubsection*{Kanonische Generatormatrix}
+
+\begin{itemize}
+\item Definition: Aus der Generatormatrix kann man alle möglichen Codewörter der Sprache erzeugen.
+\item Falls die Generatormatrix gegeben ist, lässt sich die die kanonische Generatormatrix durch das Anwenden des Gaußschen Verfahrens auf die Generatormatrix erstellen.
+\item Größe: $(m \times n)$
+\item Aufbau: $G = \begin{pmatrix} E & G' \end{pmatrix}$
+\begin{itemize}
+\item ${\color{red}E}$: Einheitsmatrix
+\item ${\color{ForestGreen}G'}$: Linear unabhängiger Rest aus Codewörtern
+\end{itemize}
+
+\end{itemize}
+
+$$
+G = \begin{pmatrix}
+{\color{red}1} & {\color{red}0} & {\color{ForestGreen}1} & {\color{ForestGreen}1} & {\color{ForestGreen}1}\\
+{\color{red}0} & {\color{red}1} & {\color{ForestGreen}1} & {\color{ForestGreen}0} & {\color{ForestGreen}1}
+\end{pmatrix}
+$$
+
+\subsubsection*{Kanonische Kontrollmatrix}
+
+\begin{itemize}
+\item Definition: Erfüllt ein Wort $wort \cdot kontrollmatrix = 0$ ist es ein richtiges Codewort.
+\item Größe: $n \times (n - m)$
+\item Aufbau: $H = \begin{pmatrix}-G\\E\end{pmatrix}$
+\begin{itemize}
+\item ${\color{red}E}$: Einheitsmatrix
+\item ${\color{ForestGreen}-G}$: Linear unabhängiger Rest aus Codewörtern
+\end{itemize}
+\end{itemize}
+
+$$
+H = \begin{pmatrix}
+{\color{ForestGreen}-1} & {\color{ForestGreen}-1} & {\color{ForestGreen}-1}\\
+{\color{ForestGreen}-1} & {\color{ForestGreen}-0} & {\color{ForestGreen}-1}\\
+{\color{red}1} & {\color{red}0} & {\color{red}0}\\
+{\color{red}0} & {\color{red}1} & {\color{red}0}\\
+{\color{red}0} & {\color{red}0} & {\color{red}1}
+\end{pmatrix} = \begin{pmatrix}
+{\color{ForestGreen}1} & {\color{ForestGreen}1} & {\color{ForestGreen}1}\\
+{\color{ForestGreen}1} & {\color{ForestGreen}0} & {\color{ForestGreen}1}\\
+{\color{red}1} & {\color{red}0} & {\color{red}0}\\
+{\color{red}0} & {\color{red}1} & {\color{red}0}\\
+{\color{red}0} & {\color{red}0} & {\color{red}1}
+\end{pmatrix}
+$$
+
+Modulo mit negativen Zahlen:
+
+\begin{table}[h]
+\begin{tabular}{c|cccccccccccccccccccc}
+& $-10$ & $-9$ & $-8$ & $-7$ & $-6$ & $-5$ & $-4$ & $-3$ & $-2$ & $-1$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$\\
+\hline
+$\mathbb{Z}_2$ & & & & & & & & & $0$ & $1$ & $[0$ & $1]$ & & & & & & & &\\
+\hline
+$\mathbb{Z}_3$ & & & & & & & & $0$ & $1$ & $2$ & $[0$ & $1$ & $2]$ & & & & & & &\\
+\hline
+$\mathbb{Z}_4$ & & & & & & & $0$ & $1$ & $2$ & $3$ & $[0$ & $1$ & $2$ & $3]$ & & & & & &\\
+\hline
+$\mathbb{Z}_5$ & & & & & & $0$ & $1$ & $2$ & $3$ & $4$ & $[0$ & $1$ & $2$ & $3$ & $4]$ & & & & &\\
+\hline
+$\mathbb{Z}_6$ & & & & & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $[0$ & $1$ & $2$ & $3$ & $4$ & $5]$ & & & &\\
+\hline
+$\mathbb{Z}_7$ & & & & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $[0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6]$ & & &\\
+\hline
+$\mathbb{Z}_8$ & & & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $[0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7]$ & &\\
+\hline
+$\mathbb{Z}_9$ & & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $[0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8]$ &\\
+\hline
+$\mathbb{Z}_{10}$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $[0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9]$\\
+\end{tabular}
+\end{table}

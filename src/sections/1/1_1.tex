@@ -1,0 +1,25 @@
+\subsection{Anzahl Aufteilungen von einer Menge $N$ von Kugeln in eine Menge $R$ von Fächern}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|c|l|l|l}
+$|N| = n, |R| = r$ & beliebig & injektiv & surjektiv & bijektiv\\
+\hline
+% === %
+$N$ unterscheidbar & & $r \geq n : r^{\underline{n}}$ & $n \geq r : r!S_{n,r}$ & $r = n : n!$\\
+$R$ unterscheidbar & $r^n$ & $r < n : 0$ & $n < r : 0$ & $r \neq n : 0$\\
+\hline
+% === %
+$N$ nicht unterscheidbar & $\begin{pmatrix}r + n - 1\\ n\end{pmatrix}$ & $r \geq n : \begin{pmatrix}r\\ n\end{pmatrix}$ & $n \geq r: \begin{pmatrix}n-1\\ r-1\end{pmatrix}$ & $r = n : 1$\\
+$R$ unterscheidbar & $\displaystyle = \frac{r^{\overline{n}}}{n!}$ & $r < n : 0$ & $n < r : 0$ & $r \neq n : 0$\\
+\hline
+% === %
+$N$ unterscheidbar & & $r \geq n : 1$ &  $n \geq r : S_{n,r}$ & $r = n : 1$\\
+$R$ nicht unterscheidbar & $\displaystyle \sum_{k=1}^{r}S_{n,k}$ & $r < n : 0$ & $n < r : 0$ & $r \neq n : 0$\\
+\hline
+% === %
+$N$ nicht unterscheidbar & & $r \geq n : 1$ & $n \geq r : P_{n,r}$ & $r = n : 1$\\
+$R$ nicht unterscheidbar & $\displaystyle \sum_{k=1}^{r} P_{n,k}$ & $r < n : 0$ & $n < r : 0$ & $r \neq n : 0$
+\end{tabular}
+\end{table}
+
