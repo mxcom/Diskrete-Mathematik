@@ -9,12 +9,15 @@
 
 \begin{itemize}
 \item \textbf{Blocklänge:} $\displaystyle n$
-\item \textbf{Dimension des Unterrraums $C$:} $m$
+\item \textbf{Linear unabhängige Wörter/Dimension des Unterrraums $C$:} $m$
 \item \textbf{Anzahl Codewörter:} $|C| = q^m$, wobei $q$ Anzahl Elemente in $C$
 \item \textbf{Anzahl Wörter in Standardfeld:} $q^n$
 \item \textbf{Anzahl Wörter in Syndromtabelle:} $q^{n-m}$
 \item \textbf{Hamming Code:} $\displaystyle n = \frac{q^{n-m}-1}{q-1}$
 \item \textbf{Schätzen der Codedistanz (Singleton-Schranke):} $d(C) \leq n - m + 1$
-\item \textbf{Fehler erkennend:} $(n - m + 1) - 1$
-\item \textbf{Fehler korrigierend:} $\displaystyle \Bigl\lfloor \frac{(n - m + 1) - 1}{2} \Bigr\rfloor$
+\item \textbf{Fehlererkennend:} $(n - m)$
+\item \textbf{Fehlerkorrigierend:} $\displaystyle \Bigl\lfloor \frac{(n - m)}{2} \Bigr\rfloor$
+\item \textbf{t-fehlererkennend:} $d(C) \leq t + 1$, das ausgewählte $t$ ist, wie viel Fehler der Code erkennt
+\item \textbf{t-fehlerkorrigierend:} $d(C) \leq 2t + 1$, das ausgewählte $t$ ist, wie viele Fehler der Code korrigiert
 \end{itemize}
+
