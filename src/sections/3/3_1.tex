@@ -62,8 +62,11 @@ $G(V,E)$, $V$ = Vertices = Knoten, $E$ = Edges = Kanten
 \begin{minipage}{0.5\textwidth}
 \subsubsection*{Euler-Zyklus/Eulersch}
 \begin{itemize}[leftmargin=*]
+\item Jede Kante wird genau einmal durchlaufen
+\item Kanten dürfen somit nicht mehrmals durchlaufen werden
 \item Anfangszustand = Endzustand
 \item Alle Knoten haben einen geraden Grad
+\item Ist bei Adjazenzmatrix Außengrad $\not =$ Innengrad dann kein Euler-Zyklus
 \end{itemize}\
 \\
 \includegraphics[width=0.6\textwidth]{graphics/graph_euler_zyklus.png}
@@ -85,22 +88,26 @@ $G(V,E)$, $V$ = Vertices = Knoten, $E$ = Edges = Kanten
 \begin{minipage}{0.5\textwidth}
 \subsubsection*{Hamilton-Zyklus}
 \begin{itemize}[leftmargin=*]
-\item Anfangszustand = Endzustand
-\item Alle Knoten geraden Grads
-\end{itemize}\
-\\
-\includegraphics[width=0.6\textwidth]{graphics/graph_euler_zyklus.png}
+\item Jeder Knoten wird genau einmal besucht
+\item Anfangsknoten $=$ Startknoten
+\end{itemize}
 \end{minipage}
 \hfill
 \begin{minipage}{0.5\textwidth}
 \subsubsection*{Hamilton-Pfad}
 \begin{itemize}[leftmargin=*]
-\item Jede Kante wird genau einmal durchlaufen
+\item Jeder Knoten wird genau einmal durchlaufen
+\item Nicht jede Kante muss durchlaufen werden
 \item Keine Kante wird mehrmals durchlaufen
 \item Startknoten muss nicht gleich Endknoten sein
+\end{itemize}
+\end{minipage}
+
+\subsubsection*{Isomorph}
+\begin{itemize}[leftmargin=*]
+\item Bijektive Abbildung
+\item Kanten, Knoten und Knotengrad müssen gleich sein
 \end{itemize}\
-\\
-\includegraphics[width=0.6\textwidth]{graphics/graph_euler_pfad.png}\end{minipage}
 
 \subsubsection*{Bipartit}
 
@@ -108,6 +115,15 @@ $G(V,E)$, $V$ = Vertices = Knoten, $E$ = Edges = Kanten
 \item Man kann alle Knoten in zwei (disjunkte) Teilmengen/Gruppen aufteilen
 \item Jede Verbindung geht dabei von einer Teilmenge/Gruppe in die andere
 \item Es darf allerdings keine Verbindung der Knoten innerhalb der eigenen Teilmenge/Gruppe geben
+\item \textbf{Hamilton-Zyklus:}
+\begin{itemize}
+\item Wenn beide Teilmenge ($A$ und $B$) die gleiche Anzahl an Knoten haben ($|A| = |B|$)
+\item Graph vollständig ist
+\end{itemize}
+\item \textbf{Hamilton-Pfad:}
+\begin{itemize}
+\item Wenn gilt $|A| \leq |B| + 1$ \textit{und} $|A| \geq |B| - 1$
+\end{itemize}
 \end{itemize}
 
 \begin{figure}[h]
@@ -129,8 +145,6 @@ $G(V,E)$, $V$ = Vertices = Knoten, $E$ = Edges = Kanten
 \centering
 \includegraphics[width=0.75\textwidth]{graphics/graph_bipartit2.png}
 \end{figure}
-
-\newpage
 
 \subsubsection*{Planar}
 

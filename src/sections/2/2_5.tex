@@ -1,13 +1,94 @@
-\subsection{Kontrollmatrix zu Generatormatrix umwandeln}
+\subsection{Kontrollmatrix zu Generatormatrix}
+
+\begin{itemize}
+\item Die Kontrollmatrix eines linearen (n,m)-Codes C über dem Körper $\mathbb{Z}_5$
+\item Da $\mathbb{Z}_5$ alles $mod \ 5$
+\end{itemize}
 
 $$
 H = \begin{pmatrix}
-2 & 0\\
+4 & 1\\
 1 & 1\\
-0 & 1\\
-2 & 1
+2 & 4\\
+3 & 4
 \end{pmatrix} = \begin{pmatrix}
-2 & 1 & 0 & 2\\
-0 & 1 & 1 & 1
+4 & 1 & 2 & 3\\
+1 & 1 & 4 & 4
+\end{pmatrix}^T
+$$
+
+\begin{itemize}
+\item Um aus einer Kontrollmatrix eine Generatormatrix abzuleiten machen wir uns die Eigenschaft $G\cdot H = 0$ zu nutze
+\item Um $G\cdot H = 0$ zu lösen stellen wir eine Tabelle auf die unser Gleichungssystem repräsentiert
+\end{itemize}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc|c}
+$g_1$ & $g_2$ & $g_3$ & $g_4$ &\\
+\hline
+4 & 1 & 2 & 3 & 0\\
+1 & 1 & 4 & 4 & 0
+\end{tabular}
+\end{table}
+
+\begin{itemize}
+\item Nun wählt man 2 beliegt Variablen (Anzahl Variablen: $|g| - 2$)
+\item $g_3 = \lambda$, $g_4 = \mu$
+\item Nun löst man das Gleichungssystem für die restlichen $g$'s ($g_1$ und $g_2$)
+\item \textbf{Achtung:} Wir rechnen in $\mathbb{Z}_5$
+\begin{itemize}
+\item Wenn man neative Zahlen hat gilt $-a \ mod \ 5 = b$ und man rechnet mit der positive Zahl weiter
+\item Wenn man dividiert immer das multiplikative Inverse der Zahl (z.B $a$) nehmen, und mit dem Inversen (z.B $b$) multiplizieren ($a \cdot b \ mod  \ 5 = 1$)
+\end{itemize}
+\end{itemize}
+
+\textbf{Nach $g_1$ lösen:}
+\begin{align*}
+0 &= 4g_1 + g_2 + 2g_3 + 3g_4\\
+4g_1 &= -g_2 -2g_3 -3g_4\\
+4g_1 &= 4g_2 + 3g_3 + 2g_4 \ | \ variablen \ einsetzen\\
+4g_1 &= 4g_2 + 3\lambda + 2\mu \ | \cdot 4 \ (mult. \ Inverses \ von \ 4)\\
+\end{align*}
+$$
+\boxed{g_1 = g_2 + 2\lambda + 3\mu} \xrightarrow[]{\text{Nach dem lösen von } g_2} \boxed{g_1 = 4\lambda + 2\mu}
+$$
+
+\textbf{Nach $g_2$ lösen:}
+\begin{align*}
+0 &= g_1 + g_2 + 4g_3 + 4g_4\\
+g_2 &= -g_1 - 4g_4 - 4g_4 \ | g_1 \ und \ variablen \ einsetzen\\
+&= -(g_2 + 2\lambda + 3\mu) - 4\lambda - 4\mu\\
+&= -g_2 + -2\lambda -3\mu - 4\lambda - 4\mu\\
+&= 4g_2 + 3 \lambda + 2\mu + 1 \lambda + 1\mu\\
+&= 4g_2 + 4 \lambda + 3 \mu \ | -4g_2\\
+2g_2 &= 4 \lambda + 3 \mu \ | \cdot 3 \ (mult. \ Inverses \ von \ 2)
+\end{align*}
+$$
+\boxed{g_2 = 2\lambda + 4\mu}
+$$
+
+\begin{itemize}
+\item Nun lässt sich $G$ bestimmen
+\item $G$ hat die Form $(g_1, g_2, g_3, g_4)$
+\end{itemize}
+$$
+G = (4\lambda + 2\mu, 2\lambda + 4\mu, \lambda, \mu)
+$$
+
+\begin{itemize}
+\item Nun muss mann für alle Spalten $\lambda$ und $\mu$ so bestimmen das $G\cdot H = 0$ aufgeht
+\item \textbf{Für die ersten Spalte:} $\lambda = 1, \mu = 0$
+\item \textbf{Für die zweite Spalte:} $\lambda = 0, \mu = 1$
+\end{itemize}
+$$
+G = \begin{pmatrix}
+4 & 2 & 1 & 0\\
+2 & 4 & 0 & 1
+\end{pmatrix} = \begin{pmatrix}
+4 & 2\\
+2 & 4\\
+1 & 0\\
+0 & 1
 \end{pmatrix}^T
 $$

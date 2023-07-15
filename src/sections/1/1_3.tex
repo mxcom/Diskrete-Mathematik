@@ -1,0 +1,246 @@
+\subsection{Rekursionsgleichungen}
+
+\textbf{1. Gleichung umstellen:}
+
+\begin{itemize}
+\item Rekursionsgleichung in einen homogenen (links) und einen inhomogenen Teil  (rechts) teilen
+\item \textbf{Homogener Teil:} Überall wo ein $a$ vorhanden ist
+\item \textbf{Inhomogener Teil:} Rest wo kein $a$ vorhanden ist
+\end{itemize}
+$$
+homogener \ Teil = inhomogener \ Teil
+$$
+
+\textbf{2. Allgemeine Lösung des homogenen Teils berechnen:}
+
+\begin{itemize}
+\item Das Charakteristisches Polynom aufstellen indem man alle $a_n$ mit $\lambda ^n$ ersetzt
+\end{itemize}
+$$
+p(\lambda ) = x_m \lambda ^{n_m} + x_{m-1} \lambda ^{n_{m-1}} + \dots x_0 + \lambda ^{n_0}
+$$
+
+\begin{itemize}
+\item Das Charakteristisches Polynom lösen, durch finden der Nullstellen 
+\begin{itemize}
+\item Bei Polynom zweiten Gerades ($\lambda ^2$) pq-Formel verwenden: $-\frac{-p}{2} \pm \sqrt{(\frac{p}{2})^2 - q}$
+\end{itemize}
+\end{itemize}
+$$
+x_m \lambda ^{n_m} + x_{m-1} \lambda ^{n_{m-1}} + \dots x_0 + \lambda ^{n_0} = 0
+$$
+
+\begin{itemize}
+\item Allgemeine Lösung für homogenen Teil setzt sich aus den Nullstellen $\lambda _1, \lambda _2, \dots , \lambda _k$ zusammen
+\begin{itemize}
+\item Falls die Nullstellen verschieden (und reelle Zahlen) sind ist die allgemeine Lösung des homogenen Teils: $$a_{h,n} = c_1 \lambda _1 ^n + c_{2} \lambda _2 ^n + \dots + c_k \lambda _k ^n$$
+\item Falls die Nullstellen gleich (und relle Zahlen) sind ist die allgemeine Lösung des homogenen Teils: $$a_{h,n} = c_1 \lambda _1 ^n + c_{2} n \lambda _2 ^n + c_{3} n^2 \lambda _3 ^n + \dots + c_k n^{k-1} \lambda _k ^n$$
+\end{itemize}
+\end{itemize}
+
+\textbf{3. Ansatz für Spezielle Lösung des inhomogenen Teils herleiten:}
+
+\begin{itemize}
+\item Mit Hile der Tabelle lässt sich ein Ansatz für die spezielle Lösung des inhomogenen Teils herleiten (vermutete spezielle Lösung)
+\item Dieser wird mit $a_{s,n}$ bezeichnet
+\end{itemize}
+
+\begin{table}[h]
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{l|l}
+& Ansatzfunktion: $y_{s,n}$\\
+\hline
+$b \ (Konstante)$ & $B \ (Konstante)$\\
+$n$ & $B_1 n + B_0$\\
+$n^t, t \in \mathbb{N}$ & $B_t n^t + B_{n-1} n^{t-1} + \dots + B_1 n + B_0$\\
+$r^n, r \in R$ & $Br^n$\\
+$n^t r^n$ & $r^n (B_t n^t + B_{n-1} n^{t-1} + \dots + B_1 n + B_0)$
+\end{tabular}
+\end{table}
+
+\textbf{4. Ansatz der Spezielle Lösung in den homogenen Teil einsetzen, um die spezielle Lösung zu erhalten:}
+
+\begin{itemize}
+\item Ansatz der Spezielle Lösung in den homogenen Teil einsetzen
+\item Koeffizientenverlgeich zum bestimmen der speziellen Lösung
+\end{itemize}\
+
+\textbf{5. $a_n$ bestimmen}
+
+\begin{itemize}
+\item Kombiniere die allgemeine Lösung des homogenen Teils und die spezielle Lösung des inhomogenen Teils: $$a_n = a_{h, n} + a_{s, n}$$
+\end{itemize}\
+
+\textbf{6. Gegebenes $a_0$ und $a_1$ benuten}
+
+\begin{itemize}
+\item Gegebenen Anfangswerte in die allgemeine Lösung eingesetzt, um die spezifischen Werte der Konstanten zu bestimmen, die benötigt werden, um die endgültige Lösung zu finden.
+\end{itemize}\
+\\
+
+\hrule\
+
+\textbf{Typische Klausurfragen zu Rekursionsgleichungen:}\\
+
+\textbf{1. Typ der Rekursionsgleichung bestimmen}
+
+\begin{itemize}
+\item \textbf{Homogene lineare Rekursion mit konstanten Koeffizienten:}
+\begin{itemize}
+\item Besteht nur aus $a$'s (kann auch ein anderer Buchstabe sein)
+\item \textbf{Aufbau:} $$a_{n+k} = y_{k-1}a_{n+k-1} + y_{k-2}a_{n+k-2} + \dots + y_{1}a_{n+1} + y_{0}a_{n}$$
+\item \textbf{Beispiel:} $$a_{n+2} = 3a_{n+1} - 2a_n$$
+\end{itemize}
+\item \textbf{Inhomogene lineare Rekursionsgleichungen mit konstanten Koeffizienten:}
+\begin{itemize}
+\item Hat zusätzliche inhomogene Komponente, entweder eine Funktion von $n$ ($n$, $n^2$, $n^3$, $\dots$, $x^n$, $\dots$) oder eine konstante Zahl
+\item \textbf{Aufbau:} $$a_{n+k} = y_{k-1}a_{n+k-1} + y_{k-2}a_{n+k-2} + \dots + y_{1}a_{n+1} + y_{0}a_{n} + f(n)$$
+\item \textbf{Beispiel:} $$a_{n+2} = 3a_{n+1} - 2a_n + 4n$$ \begin{center}\textit{oder}
+\end{center} $$a_{n+2} = 3a_{n+1} - 2a_n + 6$$ \begin{center}\textit{oder}
+\end{center} $$a_{n+2} = 3a_{n+1} - 2a_n + 3^n$$ \begin{center}\textit{oder}  $$a_{n+2} = 3a_{n+1} - 2a_n + 4n + 6 + 3^n$$
+\end{center}
+\end{itemize}
+\end{itemize}\
+
+\textbf{2. Grad der Rekursionsgleichung bestimmen}
+
+\begin{itemize}
+\item Der Grad einer Rekursionsgleichung bezieht sich auf den höchsten Exponenten der Rekursionsvariable
+\item \textbf{Beispiel:}$a_{n+{\color{red}2}} = 3a_{n+1} - 2a_n + 6 \rightarrow$ Grad $= {\color{red}2}$
+\end{itemize}\
+\\
+
+\hrule\
+
+\newpage
+
+\textbf{Beispiel:} $a_{n+2} = 49 a_n + 48n - 98, \qquad n \geq 0 \qquad a_0 = 5, a_1 = 8$
+
+\textbf{1. Gleichung umstellen}
+$$
+a_{n+2} - 49a_n = 48n - 98
+$$
+
+\textbf{2. Allgemeine Lösung des homogenen Teil berechnen}
+
+\begin{itemize}
+\item Ersetze alle $a_n$ mit $\lambda ^n$
+\item $a_{n+{\color{blue}2}} \rightarrow \lambda ^{\color{blue}2}$ und $-49a_{n+{\color{blue}0}} \rightarrow -49 \lambda ^{{\color{blue}0}} = -49$
+\end{itemize}
+$$
+p(\lambda) =  \lambda ^2 - 49
+$$
+
+\begin{itemize}
+\item Nullstelle bestimmen ($\lambda _1$ und $\lambda _2$)
+\end{itemize}
+$$
+\lambda ^2 - 49 = 0 \rightarrow \lambda _{1,2} = \pm 7
+$$
+
+\begin{itemize}
+\item Allgemeine Lösung für homogenen Teil:
+\end{itemize}
+$$
+\boxed{a_{h,n} = c_1 7^n + c_2 (-7)^n}
+$$
+
+\textbf{3. Ansatz für spezielle Lösung des inhomogenen Teil}
+
+\begin{itemize}
+\item Nach Tabelle Ansatz für spezielle Lösung aufstellen
+\end{itemize}
+
+$$
+a_{s,n} = b_1 n + b_2
+$$
+
+\begin{table}[h]
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{l|l}
+& Ansatzfunktion: $y_{s,n}$\\
+\hline
+$b \ (Konstante)$ & $B \ (Konstante)$\\
+$n$ & $B_1 n + B_0$\\
+$n^t, t \in \mathbb{N}$ & $B_t n^t + B_{n-1} n^{t-1} + \dots + B_1 n + B_0$\\
+$r^n, r \in R$ & $Br^n$\\
+$n^t r^n$ & $r^n (B_t n^t + B_{n-1} n^{t-1} + \dots + B_1 n + B_0)$
+\end{tabular}
+\end{table}
+
+\textbf{4. Ansatz für spezielle Lösung in homogenen Teil einfügen}
+
+\begin{itemize}
+\item homogener Teil: $a_{{\color{blue}n+2}} - 49a_{\color{red}n}$
+\item Ansatz spezielle Lösung: $a_{s,n} = b_1 n + b_2$
+\item inhomogener Teil: $48n - 98$
+\end{itemize}
+\begin{align*}
+b_1({\color{blue}n+2}) + b_2 - 49(b_1{\color{red}n} + b_2) &= 48n - 98\\
+b_1n + 2b_1 + b_2 - 49b_1 n - 49b_2 & = 48n - 98
+\end{align*}
+
+\begin{itemize}
+\item Nun vergleicht man die Koeffizienten der speziellen Lösung $(n^1, n^0)$
+\item inhomogener Teil: ${\color{Green}48}n {\color{orange}- 98}$
+\end{itemize}
+\begin{align*}
+n^1&: b_1 -49b_1 = -48b_1 = {\color{Green}48} \rightarrow b_1 = -1\\~\\
+n^0&: 2b_1 + b_2 - 49 b_2 = {\color{orange}-98} \rightarrow b_2 = 2
+\end{align*}
+
+\begin{itemize}
+\item Nun setzt man die ermittelten Werte in den Ansatz der speziellen Lösung ein und erhält die spezielle Lösung
+\end{itemize}
+$$
+\boxed{a_{s,n} =  -1n + 2}
+$$
+
+\textbf{$a_n$ bestimmen}
+\begin{align*}
+a_n &= a_{h,n} + a_{s,n}\\
+a_n & = c_1 7^n + c_2 (-7)^n -1n + 2
+\end{align*}
+
+\textbf{$a_0$ und $a_1$ benutzen um $c_1$ und $c_2$ zu bestimmen}
+
+\begin{itemize}
+\item $a_0 = 5, a_1 = 8$
+\end{itemize}
+
+\begin{align*}
+a_0: c_1 7^0 + c_2(-7)^0 - 1 \cdot 0 + 2 &= 5\\
+c_1 - c_2 + 2 &= 5
+\end{align*}
+
+\begin{align*}
+a_1: c_1 7^1 + c_2(-7)^1 - 1\cdot 1 + 2 &= 8\\
+7c_1 - 7c_2 -1 + 2 &= 8
+\end{align*}
+
+\begin{itemize}
+\item $a_0$ nach $c_1$ umstellen un in $a_1$ einsetzen um $c_2$ zu bestimmen
+\item dann $c_2$ in $c_1$ einsetzen um $c_1$ zu erhalten
+\item Werte von $c_1$ und $c_2$ in $a_n$ einsetzen, das Ergebnis ist die allgemeine Lösung
+\end{itemize}
+
+\begin{align*}
+a_0: c_1 - c_2 + 2 &= 5\\
+c_1 &= 3 + c_2
+\end{align*}
+
+\begin{align*}
+a_1: 7(3 + c_2) - 7c_2 -1 + 2 &= 8\\
+\dots
+\end{align*}
+
+$$
+\boxed{a_n = c_1 7^n + c_2 (-7)^n -1n + 2}
+$$
+
+Hier $c_1$ und $c_2$ mit eigentlichen Werten ersetzen
+
+
+
+
+

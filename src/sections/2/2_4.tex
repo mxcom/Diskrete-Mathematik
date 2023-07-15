@@ -1,1 +1,107 @@
-\subsection{Standardfeld}
+\subsection{Reed-Solomon-Codes}
+
+\begin{itemize}
+\item $RS(q,m,n)$
+\item \textbf{Hamming-/Code-Distanz:} $d(C) = n - m + 1$
+\item \textbf{Max. Anzahl Fehlerkorrigierend:} $\displaystyle \Bigl\lfloor \frac{(n - m)}{2} \Bigr\rfloor$
+\item \textbf{Max. Anzahl Ausfällekorrigerend:} $(n - m)$
+\end{itemize}\
+
+\textbf{Nachricht codieren/Codewort erzeugen:}
+
+\begin{itemize}
+\item Da $q = 5$ alles $mod \ 5$
+\item \textbf{Nachricht:} $a = ({\color{red}3}, {\color{red}4}, {\color{red}2})$
+\item \textbf{Polynom:} $a(x) = a_0 + a_1x + a_2x^2 \xRightarrow[]{\text{\textit{a} einsetzen}} a(x) = {\color{red}3} + {\color{red}4}x + {\color{red}2}x^2$
+\item \textbf{Stützstellen:} $u_1 = {\color{blue}0}, u_2 = {\color{Green}1}, u_3 = {\color{Orange}2}, u_4 = 3, u_5 = 4$
+\end{itemize}\
+
+$a(0) = 3 + 4\cdot {\color{blue}0} + 2\cdot {\color{blue}0^2} = 3$
+
+$a(1) = 3 + 4\cdot {\color{Green}1} + 2\cdot {\color{Green}1^2} = 9 \ mod \ 5 = 4$
+
+$a(2) = 3 + 4\cdot {\color{Orange}2} + 2\cdot {\color{Orange}2^2} = 19 \ mod \ 5 = 4$
+
+$a(3) = 3 + 4\cdot 3 + 2\cdot 3^2 = 33 \ mod \ 5 = 3$
+
+$a(4) = 3 + 4\cdot 4 + 2\cdot 4^2 = 51 \ mod \ 5 = 1$
+
+$c(a) = (a(0),a(1),a(2),a(3),a(4)) = (3,4,4,3,1)$\\
+
+\textbf{Ausfällekorrigieren: Fehlerhaftes Codewort bestimmen}
+
+\begin{itemize}
+\item Da $q = 5$ alles $mod \ 5$
+\item \textbf{Fehlerhaftes Codewort:} $y = (3, *, 4, 3, *)$
+\item \textbf{Polynom:} $a(x) = a_0 + a_1x + a_2x^2$
+\item \textbf{Stützstellen:} $u_1 = 0, u_2 = 1, u_3 = 2, u_4 = 3, u_5 = 4$
+\end{itemize}\
+
+\begin{enumerate}[leftmargin=*]
+\item Stützstellen und empfangenen (nicht fehlerhafte) Werte in das Polynom einsetzen um die Koeffizienten $a_0$, $a_1$, $a_2$ zu finden
+\end{enumerate}
+
+$a(0) = a_0 + a_1 \cdot 0 + a_2 \cdot 0^2 = 3 \Rightarrow \boxed{a_0 = 3}$
+
+$a(2) = 3 + a_1 \cdot 2 + a_2 \cdot 2^2 = 4$\\
+$\text{}\qquad = 3 + 2a_1 + 4a_2 = 4 \quad |-3 \ | -4a_2 \ | :2$\\
+$\text{}\qquad = a_1 = \frac{1}{2} - 2a_2$
+
+$a(3) = 3 + (\frac{1}{2} - 2a_2) \cdot 3 + a_2 \cdot 3^2 = 3$\\
+$\text{}\qquad = 3 + 3(\frac{1}{2} - 2a_2) + 9a_2 = 3$\\
+$\text{}\qquad = 3 + \frac{3}{2} - 6a_2 + 9a_2 = 3$\\
+$\text{}\qquad = 4,5 + 3a_2 = 3 \quad |-4,5 \ | :3 \Rightarrow \boxed{a_1 = -\frac{1}{2}} \Rightarrow \boxed{a_2 = \frac{3}{2}}$\\
+
+\begin{enumerate}[leftmargin=*, label={2.}]
+\item Mit den gefunden Koeffizienten $a_0$, $a_1$, $a_2$ lassen sich nun die fehlenden Stellen herleiten
+\end{enumerate}
+
+$a(1) = 3 + \frac{3}{2} \cdot 1 - \frac{1}{2} \cdot 1^2 = \underline{\underline{4}}$
+
+$a(4) = 3 + \frac{3}{2} \cdot 4 - \frac{1}{2} \cdot 4^2 = \underline{\underline{1}}$
+
+Das Codewort ist somit $y = (3, 4, 4, 3, 1)$\\
+
+\textbf{Generatormatrix erzeugen:}
+
+\begin{itemize}
+\item Beispiel: $m=3, n = 5, q = 5$
+\item $u_1 = 0, u_2 = 1, u_3 = 2, u_4 = 3, u_5 = 4$
+\end{itemize}\
+
+$G = \begin{pmatrix}
+1        & 1      & \dots & 1\\
+u_1   & u_2    & \dots & u_n\\
+u_1^2  & u_2^2  & \dots & u_n^2\\
+u_1^3  & u_2^3  & \dots & u_n^3\\
+\vdots & \vdots &  & \vdots\\
+u_1^m  & u_2^m  & \dots & u_n^m
+\end{pmatrix} = \begin{pmatrix}
+1 & 1 & 1 & 1 & 1\\
+0 & 1 & 2 & 3 & 4\\
+0 & 1 & 2 & 9 & 16\\
+0 & 1 & 8 & 27 & 64\\
+\end{pmatrix}$\
+\\
+
+\textbf{Kontrollmatrix erzeugen:}
+
+\begin{itemize}
+\item Beispiel: $m=2, n = 5, q = 5$
+\item $u_1 = 0, u_2 = 1, u_3 = 2, u_4 = 3, u_5 = 4$
+\end{itemize}\
+
+$H = \begin{pmatrix}
+1 & 0 & 0 & \dots & 0\\
+1 & 1 & 1 & \dots & 1\\
+1 & u_3 & u_3^2 & \dots & u_3^{q-m-1}\\
+1 & u_4 & u_4^2 & \dots & u_4^{q-m-1}\\
+\vdots & \vdots & \vdots & & \vdots\\
+1 & u_q & u_q^2 & \dots & u_q^{q-m-1}
+\end{pmatrix} = \begin{pmatrix}
+1 & 1 & 1\\
+0 & 1 & 1\\
+0 & 2 & 4\\
+0 & 3 & 9\\
+0 & 4 & 16
+\end{pmatrix}$
