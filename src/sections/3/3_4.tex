@@ -31,3 +31,34 @@ Ein vollständiges/perfektes Matching ist ein Matching, das alle Kanten des Grap
 
 \subsubsection*{Hopcraft-Karp Algorithmus}
 
+
+
+\newpage
+
+\subsection{Hierholzer für ungerichteten/gerichtete Graphen}
+
+\textbf{Vorraussetzungen:}
+
+\begin{itemize}
+\item Der Graph muss zusammenhängend sein.
+\item Alle Knoten außer zwei haben denselben Innengrad wie Außengrad. (Mit ausnahme von zwei außnahmen)
+\item Einer der beiden ausnahmsweisen Knoten hat einen Außengrad, der um eins größer ist als sein Innengrad (dies ist der Startknoten).
+\item Der andere ausnahmsweise Knoten hat einen Innengrad, der um eins größer ist als sein Außengrad (dies ist der Endknoten).
+\begin{itemize}
+\item Der Endknoten wird automatisch zum Endknoten
+\end{itemize}
+\end{itemize}
+
+\textbf{Ablauf:}
+
+\begin{itemize}
+\item \textbf{Startknoten:} Außengrad eins größer als Innengrad
+\item Beginne beim Startknoten und folge den Kanten des Graphen, bis du zu einem Knoten kommst, von dem aus du keine weiteren unbesuchten Kanten mehr folgen kannst.
+\item Füge den gewählten Weg zum Euler-Pfad hinzu
+\item Solange es noch Knoten mit nicht markierten Kanten in Weg gibt
+\begin{itemize}
+\item Wähle als Startknoten einen mit noch freien Kanten
+\item Finde einen Zyklus vom gewählten Startknoten bis wieder zurück zum Startknoten
+\item Verschmelze Weg und Zyklus
+\end{itemize}
+\end{itemize}
