@@ -78,39 +78,18 @@ $n^t r^n$ & $r^n (B_t n^t + B_{n-1} n^{t-1} + \dots + B_1 n + B_0)$
 \end{itemize}\
 \\
 
-\hrule\
+\hrule
 
-\textbf{Typische Klausurfragen zu Rekursionsgleichungen:}\\
-
-\textbf{1. Typ der Rekursionsgleichung bestimmen}
+\textbf{Spezialfälle:}
 
 \begin{itemize}
-\item \textbf{Homogene lineare Rekursion mit konstanten Koeffizienten:}
-\begin{itemize}
-\item Besteht nur aus $a$'s (kann auch ein anderer Buchstabe sein)
-\item \textbf{Aufbau:} $$a_{n+k} = y_{k-1}a_{n+k-1} + y_{k-2}a_{n+k-2} + \dots + y_{1}a_{n+1} + y_{0}a_{n}$$
-\item \textbf{Beispiel:} $$a_{n+2} = 3a_{n+1} - 2a_n$$
+\item[1.] Falls in der allgemeinen Lösung des homogenen Teils, es gleichen Stellen wie in dem Ansatz der speziellen Lösung der inhomogenen Lösung gibt, dann wird ein $n$ im Ansatz der speziellen Lösung hinzugefügt
+\item \textbf{Beispiel:} $$a_{h,n} = c_1 {\color{red}3^n} + c_2(-2)^n$$ \begin{center}
+\textit{und}\end{center} $$a_{s,n} = b_1 {\color{red}3^n} + b_2 n + b_3$$ \begin{center} \textit{Vor $3^n$ wird deshalb ein $n$ hinzugefügt} \end{center} $$a_{s,n} = b_1 {\color{blue}n}{\color{red}3^n} + b_2 n + b_3$$
+\item[2.] Falls es ein $1^n$ in der allgemeine Lösung des homogenen Teils gibt mit $n \geq 0$, dann wird ein n im speziellen Teil hinzugefügt.
+\item \textbf{Beispiel:} $$a_{h,n} = c_1 {\color{red}3^n} + c_2(-2)^n$$ \begin{center}
+\textit{und}\end{center} $$a_{s,n} = b_1 {\color{red}1^n} + b_2 n + b_3$$ \begin{center} \textit{Vor $3^n$ wird deshalb ein $n$ hinzugefügt} \end{center} $$a_{s,n} = b_1 {\color{blue}n}{\color{red}3^n} + b_2 n + b_3$$
 \end{itemize}
-\item \textbf{Inhomogene lineare Rekursionsgleichungen mit konstanten Koeffizienten:}
-\begin{itemize}
-\item Hat zusätzliche inhomogene Komponente, entweder eine Funktion von $n$ ($n$, $n^2$, $n^3$, $\dots$, $x^n$, $\dots$) oder eine konstante Zahl
-\item \textbf{Aufbau:} $$a_{n+k} = y_{k-1}a_{n+k-1} + y_{k-2}a_{n+k-2} + \dots + y_{1}a_{n+1} + y_{0}a_{n} + f(n)$$
-\item \textbf{Beispiel:} $$a_{n+2} = 3a_{n+1} - 2a_n + 4n$$ \begin{center}\textit{oder}
-\end{center} $$a_{n+2} = 3a_{n+1} - 2a_n + 6$$ \begin{center}\textit{oder}
-\end{center} $$a_{n+2} = 3a_{n+1} - 2a_n + 3^n$$ \begin{center}\textit{oder}  $$a_{n+2} = 3a_{n+1} - 2a_n + 4n + 6 + 3^n$$
-\end{center}
-\end{itemize}
-\end{itemize}\
-
-\textbf{2. Grad der Rekursionsgleichung bestimmen}
-
-\begin{itemize}
-\item Der Grad einer Rekursionsgleichung bezieht sich auf den höchsten Exponenten der Rekursionsvariable
-\item \textbf{Beispiel:}$a_{n+{\color{red}2}} = 3a_{n+1} - 2a_n + 6 \rightarrow$ Grad $= {\color{red}2}$
-\end{itemize}\
-\\
-
-\hrule\
 
 \newpage
 
@@ -239,6 +218,44 @@ $$
 $$
 
 Hier $c_1$ und $c_2$ mit eigentlichen Werten ersetzen
+
+\newpage
+
+\subsection{Typische Klausurfragen zu Rekursionsgleichungen:}
+
+\textbf{1. Typ der Rekursionsgleichung bestimmen}
+
+\begin{itemize}
+\item \textbf{Homogene lineare Rekursion:}
+\begin{itemize}
+\item Besteht nur aus $a$'s (kann auch ein anderer Buchstabe sein) aber es werden keine Koeffizienten vorgegeben
+\item \textbf{Aufbau:} $$a_{n+k} = y_{k-1}a_{n+k-1} + y_{k-2}a_{n+k-2} + \dots + y_{1}a_{n+1} + y_{0}a_{n} \qquad n \geq 0$$
+\item \textbf{Beispiel:} $$a_{n+2} = 3a_{n+1} - 2a_n \qquad n \geq 0$$
+\end{itemize}
+\item \textbf{Homogene lineare Rekursion mit konstanten Koeffizienten:}
+\begin{itemize}
+\item Besteht nur aus $a$'s (kann auch ein anderer Buchstabe sein)
+\item \textbf{Aufbau:} $$a_{n+k} = y_{k-1}a_{n+k-1} + y_{k-2}a_{n+k-2} + \dots + y_{1}a_{n+1} + y_{0}a_{n} \qquad n \geq 0 \quad a_0 = 1, a_1 = 4$$
+\item \textbf{Beispiel:} $$a_{n+2} = 3a_{n+1} - 2a_n \qquad n \geq 0 \quad a_0 = 1, a_1 = 4$$
+\end{itemize}
+\item \textbf{Inhomogene lineare Rekursionsgleichungen mit konstanten Koeffizienten:}
+\begin{itemize}
+\item Hat zusätzliche inhomogene Komponente, entweder eine Funktion von $n$ ($n$, $n^2$, $n^3$, $\dots$, $x^n$, $\dots$) oder eine konstante Zahl
+\item \textbf{Aufbau:} $$a_{n+k} = y_{k-1}a_{n+k-1} + y_{k-2}a_{n+k-2} + \dots + y_{1}a_{n+1} + y_{0}a_{n} + f(n) \qquad n \geq 0 \quad a_0 = 1, a_1 = 4$$
+\item \textbf{Beispiel:} $$a_{n+2} = 3a_{n+1} - 2a_n + 4n \qquad n \geq 0 \quad a_0 = 1, a_1 = 4$$ \begin{center}\textit{oder}
+\end{center} $$a_{n+2} = 3a_{n+1} - 2a_n + 6 \qquad n \geq 0 \quad a_0 = 1, a_1 = 4$$ \begin{center}\textit{oder}
+\end{center} $$a_{n+2} = 3a_{n+1} - 2a_n + 3^n \qquad n \geq 0 \quad a_0 = 1, a_1 = 4$$ \begin{center}\textit{oder}  $$a_{n+2} = 3a_{n+1} - 2a_n + 4n + 6 + 3^n \qquad n \geq 0 \quad a_0 = 1, a_1 = 4$$
+\end{center}
+\end{itemize}
+\end{itemize}\
+
+\textbf{2. Grad der Rekursionsgleichung bestimmen}
+
+\begin{itemize}
+\item Der Grad einer Rekursionsgleichung bezieht sich auf den höchsten Exponenten der Rekursionsvariable
+\item \textbf{Beispiel:}$a_{n+{\color{red}2}} = 3a_{n+1} - 2a_n + 6 \rightarrow$ Grad $= {\color{red}2}$
+\end{itemize}
+
 
 
 

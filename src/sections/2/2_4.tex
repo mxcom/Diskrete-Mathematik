@@ -30,6 +30,8 @@ $c(a) = (a(0),a(1),a(2),a(3),a(4)) = (3,4,4,3,1)$\\
 
 \textbf{Ausfällekorrigieren: Fehlerhaftes Codewort bestimmen}
 
+- Achtung rechnen im restklassenring
+
 \begin{itemize}
 \item Da $q = 5$ alles $mod \ 5$
 \item \textbf{Fehlerhaftes Codewort:} $y = (3, *, 4, 3, *)$
@@ -44,13 +46,13 @@ $c(a) = (a(0),a(1),a(2),a(3),a(4)) = (3,4,4,3,1)$\\
 $a(0) = a_0 + a_1 \cdot 0 + a_2 \cdot 0^2 = 3 \Rightarrow \boxed{a_0 = 3}$
 
 $a(2) = 3 + a_1 \cdot 2 + a_2 \cdot 2^2 = 4$\\
-$\text{}\qquad = 3 + 2a_1 + 4a_2 = 4 \quad |-3 \ | -4a_2 \ | :2$\\
-$\text{}\qquad = a_1 = \frac{1}{2} - 2a_2$
+$\text{}\qquad = 3 + 2a_1 + 4a_2 = 4 \quad |+2 \ | +a_2 \ | \cdot 3$\\
+$\text{}\qquad = a_1 = 3 +a_2$
 
-$a(3) = 3 + (\frac{1}{2} - 2a_2) \cdot 3 + a_2 \cdot 3^2 = 3$\\
-$\text{}\qquad = 3 + 3(\frac{1}{2} - 2a_2) + 9a_2 = 3$\\
-$\text{}\qquad = 3 + \frac{3}{2} - 6a_2 + 9a_2 = 3$\\
-$\text{}\qquad = 4,5 + 3a_2 = 3 \quad |-4,5 \ | :3 \Rightarrow \boxed{a_1 = -\frac{1}{2}} \Rightarrow \boxed{a_2 = \frac{3}{2}}$\\
+$a(3) = 3 + (3 +a_2) \cdot 3 + a_2 \cdot 3^2 = 3$\\
+$\text{}\qquad = 3 + 3(3 +a_2) + 4a_2 = 3$\\
+$\text{}\qquad = 3 + 4 + 4a_2 + 4a_2 = 3$\\
+$\text{}\qquad = 2 + 3a_2 = 3 \quad |+3 \ | \cdot 2 \Rightarrow \boxed{a_2 = 2} \Rightarrow \boxed{a_1 = 0}$\\
 
 \begin{enumerate}[leftmargin=*, label={2.}]
 \item Mit den gefunden Koeffizienten $a_0$, $a_1$, $a_2$ lassen sich nun die fehlenden Stellen herleiten
@@ -79,8 +81,7 @@ u_1^m  & u_2^m  & \dots & u_n^m
 \end{pmatrix} = \begin{pmatrix}
 1 & 1 & 1 & 1 & 1\\
 0 & 1 & 2 & 3 & 4\\
-0 & 1 & 2 & 9 & 16\\
-0 & 1 & 8 & 27 & 64\\
+0 & 1 & 2 & 9 & 16
 \end{pmatrix}$\
 \\
 
@@ -89,6 +90,8 @@ u_1^m  & u_2^m  & \dots & u_n^m
 \begin{itemize}
 \item Beispiel: $m=2, n = 5, q = 5$
 \item $u_1 = 0, u_2 = 1, u_3 = 2, u_4 = 3, u_5 = 4$
+\item Stütztpunkte: $u_1 = 0$, $u_2 = 1$??
+\item wird als $RS(q, q - m, q)$ aufgefasst
 \end{itemize}\
 
 $H = \begin{pmatrix}

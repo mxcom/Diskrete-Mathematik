@@ -184,3 +184,29 @@ $G(V,E)$, $V$ = Vertices = Knoten, $E$ = Edges = Kanten
 \begin{itemize}
 \item Graphen versuchen so zu zeichnen das ein planarer Graph rauskommt (umständlich)
 \end{itemize}
+
+\newpage
+
+\subsection{Anmerkung Adjazenzmatrix}
+
+\begin{itemize}
+\item Der Außdengrad $d^+$ eines Knoten ist die Anzahl Kanten ihn verlassen
+\item Der Innengrad $d^-$ eines Knoten ist die Anzahl Kanten die zu ihn führen
+\item Ein Euler-Zyklus kann nur dann existieren, wenn für jeden Knoten gilt eines gerichteten Graphens gilt: $Außengrad \ = \ Innengrad$
+\begin{itemize}
+\item \textbf{Achtung:} Es ist eine notwendige Bedingung, d.h falls dies zutriftt kann aber muss kein Euler-Zyklus existieren
+\end{itemize} 
+\end{itemize}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|ccc|c}
+& $a$ & $b$ & $c$ & $d^+$\\
+\hline
+$a$ & 0 & 1 & 2 & 3\\
+$b$ & 2 & 3 & 0 & 5\\
+$c$ & 3 & 0 & 1 & 4\\
+\hline
+$d^-$ & 5 & 4 & 3 & 12
+\end{tabular}
+\end{table}

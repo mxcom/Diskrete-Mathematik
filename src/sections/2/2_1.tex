@@ -9,22 +9,21 @@
 \subsection{Wichtige Formeln}
 
 \begin{itemize}
-\item \textbf{Blocklänge:} $\displaystyle n$
-\item \textbf{Linear unabhängige Wörter/Dimension des Unterrraums $C$:} $m$
+\item \textbf{Blocklänge/Codewortlänge:} $\displaystyle n$
+\item \textbf{Linear unabhängige Wörter/Dimension des Unterrraum/Länge Wörters $C$:} $m$
 \item \textbf{Anzahl Codewörter:} $|C| = q^m$, wobei $q$ Anzahl Elemente in $C$
 \item \textbf{Anzahl Wörter in Standardfeld:} $q^n$
 \item \textbf{Anzahl Wörter/Zeilen in Syndromtabelle:} $q^{n-m}$
 \item \textbf{Hamming Code:} $\displaystyle n = \frac{q^{n-m}-1}{q-1}$
 \item \textbf{Schätzen der Codedistanz (Singleton-Schranke):} $d(C) \leq n - m + 1$ (obere Schranke)
-\begin{itemize}
-\item \textbf{Untere Schranke:} $d(C) \geq r + 1$, das bestimmte $r$ ist die untere schranke. Damit zeigt man auch, dass bei gegebener Kontrollmatrix $d(C)$ Wert $x$ hat.
-\end{itemize}
+\item Wenn Zeilen von Kontrollmatrix linear unabhängig ist Codedistanz immer $ d(C) \geq 3$ (Konstruktionssatz) (untere Schranke)?
 \item \textbf{Fehlererkennend:} $(n - m)$
 \item \textbf{Fehlerkorrigierend:} $\displaystyle \Bigl\lfloor \frac{(n - m)}{2} \Bigr\rfloor$
 \item \textbf{t-fehlererkennend:} $d(C) \geq t + 1$, das ausgewählte $t$ ist, wie viel Fehler der Code erkennt
 \item \textbf{t-fehlerkorrigierend:} $d(C) \geq 2t + 1$, das ausgewählte $t$ ist, wie viele Fehler der Code korrigiert
 \item \textbf{t-ausfällekorrigierend:} $d(C) \geq t + 1$
 \end{itemize}\
+
 
 \newpage
 

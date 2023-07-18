@@ -1,4 +1,4 @@
-\subsection{Kontrollmatrix zu Generatormatrix}
+\subsection{Kontrollmatrix zu Generatormatrix/Generatormatrix zu Kontrollmatrix}
 
 \begin{itemize}
 \item Die Kontrollmatrix eines linearen (n,m)-Codes C über dem Körper $\mathbb{Z}_5$
@@ -91,4 +91,53 @@ G = \begin{pmatrix}
 1 & 0\\
 0 & 1
 \end{pmatrix}^T
+$$
+
+\subsection{Codes mit Unbekannten}
+
+Jedem Wort $x \in \mathbb{Z}_3^2$ wird durch die Abbildung
+
+$$
+C : x = \begin{pmatrix}x_1 \\ x_2\end{pmatrix} \rightarrow \begin{pmatrix}x_1\\2x_2\\x_1 + x_2\\3x_1\\4x_2\end{pmatrix}
+$$
+
+ein Codewort aus $x \in \mathbb{Z}_5^5$ zugeordnet wird
+
+a) Zeigen Sie, dass dadurch ein linearer (5,2)-Code erzeugt wird.
+
+\begin{itemize}
+\item \textbf{Lösung:} beliebige Werte aus $\mathbb{Z}_3$ einsetzen, sodass ein Codewort aus $\mathbb{Z}_5$ rauskommt
+\end{itemize}
+
+$x_{1,2} = \begin{pmatrix}x_1 = 2 \\ x_2 = 1\end{pmatrix} = \begin{pmatrix}
+2\\
+2\cdot1\\
+2 + 1\\
+3\cdot2\\
+4 \cdot 1
+\end{pmatrix} = 22314$
+
+b) Bestimmen Sie die Generatormatrix $G$ und eine Kontrollmatrix des Codes
+
+\begin{itemize}
+\item \textbf{Lösung:} Erstens $x_1 = 1$ und $x_2 = 0$ und zweitens $x_1 = 0$ und $x_2 = 3$, sodass eine kanonische Kontrollmatrix entsteht
+\end{itemize}
+
+$$
+G = \begin{pmatrix}
+1 & 0 & 1 & 3 & 0\\
+0 & 1 & 3 & 0 & 2
+\end{pmatrix} \rightarrow H = \begin{pmatrix}
+-1 & -3 & -0\\
+-3 & -0 & -2\\
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix} = \begin{pmatrix}
+4 & 2 & 0\\
+2 & 0 & 3\\
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
 $$
